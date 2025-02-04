@@ -87,6 +87,35 @@ function Services() {
   );
 }
 
+const cardImages = [
+  "https://cdn.prod.website-files.com/667db973f1500b7df05aeded/669012c8dae4c0dd0810fbd7_sapphire.png",
+  "https://cdn.prod.website-files.com/667db973f1500b7df05aeded/66a10df690cd94fdbe73a854_amexplatinum.avif",
+  "https://cdn.prod.website-files.com/667db973f1500b7df05aeded/66a10d0abeae3fd7d1d565f5_Bilt_card_D.png",
+  "https://cdn.prod.website-files.com/667db973f1500b7df05aeded/66aed91b0583ad44b52c432e_Prestige-Card-297x191-pixl.png",
+  "https://cdn.prod.website-files.com/667db973f1500b7df05aeded/66aed98e8dc15bcfb4956ac5_emirates2.jpg",
+  "https://cdn.prod.website-files.com/667db973f1500b7df05aeded/669eda294b804b5b81ea3c73_venture2.jpg",
+];
+
+function CardSlider() {
+  return (
+    <div className="relative w-full overflow-hidden bg-white py-10">
+      <h2 className="text-center text-xl font-bold text-blue-600 mb-6">
+        HIGHLY RECOMMENDED CARDS BY SMART CREDIT
+      </h2>
+
+      {/* Infinite Scrolling Wrapper */}
+      <div className="w-full flex items-center justify-center overflow-hidden">
+        <div className="flex space-x-8 animate-marquee">
+          {/* Duplicate images to create a seamless effect */}
+          {cardImages.concat(cardImages).map((src, index) => (
+            <img key={index} src={src} alt={`Card ${index}`} className="w-40 h-auto rounded-lg shadow-md" />
+          ))}
+        </div>
+      </div>
+    </div>
+  );
+}
+
 function Footer() {
   return (
     <footer className="bg-gray-900 text-white p-6 text-center">
@@ -106,6 +135,7 @@ function App() {
         <Section id="investor-connect" title="Investor Connect" content="Connect with us to explore exciting investment opportunities. We are open to strategic partnerships that drive mutual growth." bg="bg-blue-900 text-white"/>
         <Section id="tips" title="Tips" content="Discover useful tips and insights on business growth, investment strategies, and industry trends." bg="bg-gray-800 text-white"/>
       </main>
+      <CardSlider />
       <Footer />
     </div>
   );
